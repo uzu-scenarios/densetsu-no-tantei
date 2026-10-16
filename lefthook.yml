@@ -1,0 +1,21 @@
+# git hooks の定義。 `npm install` のたびに lefthook の postinstall が hook を入れる。
+# CI は無いので、 main に入る前の関所は pre-push だけ。
+# - pre-commit: staged ファイルだけを biome で lint + format (自動修正は再 stage)
+# - pre-push: typecheck / test / lint を並べて流す
+
+pre-commit:
+  jobs:
+    - name: biome
+      glob: "*.{js,mjs,ts,json,css,svelte}"
+      run: npx biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  jobs:
+    - name: typecheck
+      run: npm run typecheck
+    - name: test
+      run: npm test
+    - name: lint
+      run: npm run lint

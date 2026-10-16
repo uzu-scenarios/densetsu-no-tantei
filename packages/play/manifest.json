@@ -1,0 +1,36 @@
+{
+  "id": "densetsu-no-tantei",
+  "build": "npm run build",
+  "output": "dist",
+  "playerCount": 3,
+  "orientation": "landscape",
+  "admin": true,
+  "spectator": false,
+  "serverActionLogicPath": "./src/server/logic.ts",
+  "characters": [
+    {
+      "id": "haru",
+      "name": "春見",
+      "furigana": "はるみ",
+      "description": "30代男性・赤毛",
+      "icon": "./public/assets/u/icon-haru.webp"
+    },
+    {
+      "id": "natsu",
+      "name": "夏野",
+      "furigana": "なつの",
+      "description": "40代男性・黒髪",
+      "icon": "./public/assets/u/icon-natsu.webp"
+    },
+    {
+      "id": "aki",
+      "name": "秋永",
+      "furigana": "あきなが",
+      "description": "20代男性・茶髪",
+      "icon": "./public/assets/u/icon-aki.webp"
+    }
+  ],
+  "dev": {
+    "command": "npm run dev"
+  }
+}

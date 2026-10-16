@@ -1,0 +1,131 @@
+/*
+ * デザイントークン。 生の色を書けるのはこのファイルだけ (stylelint が他を止める)。
+ * 軸とチャンネルの対応は docs/impl/visual-vocabulary.md。
+ *
+ * 層は 2 つ: primitive (素材の色) → semantic (意味の名前)。 component は semantic を使う
+ * (primitive を component から引くと stylelint が止める)。
+ */
+
+:root {
+  /* ---- primitive: 装丁 (カバーの紺布) ---- */
+  --navy-980: #070918;
+  --navy-950: #0b0e24;
+  --navy-900: #111639;
+  --navy-850: #161c47;
+  --navy-800: #1c2455;
+  --navy-700: #283270;
+  --navy-rgb: 11, 14, 36;
+
+  /* ---- primitive: 本文紙 ---- */
+  --paper-50: #fbf7ee;
+  --paper-100: #f5eedd;
+  --paper-200: #ebe1c8;
+  --paper-300: #dccdab;
+  --paper-400: #c4b28a;
+  --paper-rgb: 245, 238, 221;
+
+  /* ---- primitive: 墨 ---- */
+  --ink-900: #1f1b1a;
+  --ink-700: #3d3631;
+  --ink-500: #6b6155;
+  --ink-rgb: 31, 27, 26;
+
+  /* ---- primitive: 箔 (自分) ---- */
+  --foil-200: #f7e3a8;
+  --foil-300: #efcf7c;
+  --foil-400: #deb456;
+  --foil-600: #a4822f;
+  --foil-rgb: 222, 180, 86;
+
+  /* ---- primitive: 朱 (熱・緊急) ---- */
+  --vermilion-400: #e0564a;
+  --vermilion-500: #c73a31;
+  --vermilion-700: #8e231d;
+  --vermilion-rgb: 199, 58, 49;
+
+  /* ---- primitive: 真鍮の罫 (装飾。 自分を表さない) ---- */
+  --brass-rgb: 196, 178, 138;
+
+  --black-rgb: 0, 0, 0;
+
+  /* ---- semantic ---- */
+  --bg-cloth: var(--navy-950);
+  --bg-cloth-deep: var(--navy-980);
+  --surface-cloth: var(--navy-900);
+  --surface-cloth-raised: var(--navy-850);
+  --text-on-cloth: var(--paper-100);
+  --text-on-cloth-muted: rgba(var(--paper-rgb), 0.66);
+  --text-on-cloth-faint: rgba(var(--paper-rgb), 0.42);
+  --rule-on-cloth: rgba(var(--brass-rgb), 0.34);
+  --rule-on-cloth-strong: rgba(var(--brass-rgb), 0.6);
+
+  --surface-paper: var(--paper-100);
+  --surface-paper-sunk: var(--paper-200);
+  --text-on-paper: var(--ink-900);
+  --text-on-paper-muted: var(--ink-500);
+  --rule-on-paper: rgba(var(--ink-rgb), 0.18);
+  --rule-on-paper-strong: rgba(var(--ink-rgb), 0.42);
+
+  /* 帰属: 自分 */
+  --self: var(--foil-400);
+  --self-bright: var(--foil-300);
+  --self-soft: rgba(var(--foil-rgb), 0.18);
+  --self-ink: var(--foil-600);
+
+  /* 熱: 自分が従事している操作 / 残りわずか */
+  --heat: var(--vermilion-500);
+  --heat-bright: var(--vermilion-400);
+  --heat-deep: var(--vermilion-700);
+
+  /* 布の上の差し色 (浮いた面の光・強い点) */
+  --surface-cloth-high: var(--navy-800);
+  --accent-cloth: var(--navy-700);
+
+  /* 紙の明るい面 (写真の台紙・強調の縁) と、 紺の上の紙色の見出し・罫 */
+  --surface-paper-bright: var(--paper-50);
+  --accent-paper: var(--paper-300);
+  --text-on-paper-soft: var(--ink-700);
+
+  /*
+   * 透かしに使うチャンネル。 濃さは場面ごとに違うので、 component は
+   * rgba(var(--cloth-rgb), 0.8) のようにこのチャンネルを通して書く。
+   */
+  --cloth-rgb: var(--navy-rgb);
+  --sheet-rgb: var(--paper-rgb);
+  --self-rgb: var(--foil-rgb);
+  --rule-rgb: var(--brass-rgb);
+  --shade-rgb: var(--black-rgb);
+
+  --scrim: rgba(var(--navy-rgb), 0.72);
+  --shadow-lift: 0 0.5em 1.4em rgba(var(--black-rgb), 0.42);
+  --shadow-paper: 0 0.25em 0.9em rgba(var(--black-rgb), 0.35);
+
+  /* ---- 書体 ---- */
+  /* 読ませる: 本文・台詞・手帳 */
+  --font-read: 'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  /* 拾わせる: HUD・ボタン・札 */
+  --font-hud: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  /* 章扉・見出し・数字 */
+  --font-display: 'Shippori Mincho B1', 'Hiragino Mincho ProN', serif;
+  --font-figure: 'Cormorant Garamond', 'Shippori Mincho B1', serif;
+
+  /* ---- 重なりの段 (数値を直書きしない) ---- */
+  --z-backdrop: 0;
+  --z-scene: 10;
+  --z-portrait: 20;
+  --z-plate: 30;
+  --z-hud: 40;
+  --z-drawer: 50;
+  --z-dialog: 60;
+  --z-opener: 70;
+  --z-toast: 80;
+
+  /* ---- 動き ---- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-quick: 120ms;
+  --dur-base: 240ms;
+  --dur-story: 700ms;
+
+  --radius-s: 0.25em;
+  --radius-m: 0.5em;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@scenario/data",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./schema": "./schema.ts",
+    "./stable-json": "./stable-json.ts",
+    "./ref-check": "./ref-check.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.10",
+    "zod": "^4.4.3"
+  }
+}

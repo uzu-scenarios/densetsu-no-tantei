@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+.claude/settings.local.json
+
+# Slack MCP がリポジトリ直下に吐くローカルキャッシュ (biome の *.json に拾われる)。
+.users_cache.json
+.channels_cache.json
+
+.npmrc
+.claude/worktrees/
+.playwright-mcp/
+
+# 生成素材の候補・E2E のスクショなど、作り直せる作業物。
+/tmp/
+
+# BGM は配布元 (DOVA-SYNDROME など) の規約で音源ファイルの公開ができないので、 手元にだけ置く。
+packages/play/public/assets/u/bgm-*.mp3

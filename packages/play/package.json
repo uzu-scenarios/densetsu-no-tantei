@@ -1,0 +1,29 @@
+{
+  "name": "play",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "harness": "uzu dev",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "publish": "uzu publish",
+    "typecheck": "tsc --noEmit && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@scenario/data": "*",
+    "@uzuhq/code-sdk": "^0.9.5"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@uzuhq/code-cli": "^0.7.5",
+    "playwright": "^1.62.1",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.1",
+    "typescript": "^5.7.0",
+    "vite": "^8.1.1",
+    "vitest": "^4.1.10"
+  }
+}

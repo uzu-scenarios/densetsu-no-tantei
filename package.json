@@ -1,0 +1,30 @@
+{
+  "name": "densetsu-no-tantei",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w play",
+    "harness": "npm run harness -w play",
+    "build": "npm run build -w play",
+    "publish": "npm run publish -w play",
+    "editor": "npm run dev -w editor",
+    "lint": "biome check . && npm run lint:css",
+    "lint:css": "stylelint \"packages/play/src/**/*.{css,svelte}\"",
+    "format": "biome format --write .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "e2e:play": "node packages/play/e2e/playthrough.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.2",
+    "lefthook": "^2.1.9",
+    "playwright": "^1.62.1",
+    "postcss-html": "^2.0.0",
+    "sharp": "^0.34.5",
+    "stylelint": "^17.14.1"
+  }
+}
